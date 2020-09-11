@@ -26,8 +26,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="20dp"
             android:layout_toEndOf="@+id/circularImg"
-
-            android:textColor="#EEE"
+            android:textColor="#333333"
             android:textSize="16sp" />
 
         <TextView
