@@ -18,7 +18,7 @@ public class SuccessDialogFragBox extends DialogFragment {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         mBuilder    = new AlertDialog.Builder(getActivity());
-        mBuilder.setView(getActivity().getLayoutInflater().inflate(R.layout.custom_pop_failure, null));
+        mBuilder.setView(getActivity().getLayoutInflater().inflate(R.layout.custom_pop_success, null));
         return mBuilder.create();
         //return super.onCreateDialog(savedInstanceState);
     }

@@ -1,12 +1,15 @@
 package com.zeoharlem.gads.gads2020lb;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -45,6 +48,12 @@ public class FormActivity extends AppCompatActivity implements MyDialogFragBox.C
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         mDialog     = new Dialog(this);
 
@@ -108,6 +117,25 @@ public class FormActivity extends AppCompatActivity implements MyDialogFragBox.C
     };
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent   = new Intent(this, LeadersBoardActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP  | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == android.R.id.home){
+            Intent intent   = new Intent(this, LeadersBoardActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP  | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     public void onDialogBoxConfirm(boolean s) {
         if(s){
             FormService formService     = ServiceBuilder.buildService(FormService.class);
@@ -122,12 +150,13 @@ public class FormActivity extends AppCompatActivity implements MyDialogFragBox.C
             createRequest.enqueue(new Callback<Void>() {
                 @Override
                 public void onResponse(Call<Void> call, Response<Void> response) {
+                    myDialogFragBox.dismiss();
+                    if(!response.isSuccessful()){
+                        Toast.makeText(getApplicationContext(), "Error: "+response.code(), Toast.LENGTH_LONG).show();
+                        return;
+                    }
                     SuccessDialogFragBox successDialogFragBox   = new SuccessDialogFragBox();
                     successDialogFragBox.show(getSupportFragmentManager(), "success");
-                    if(successDialogFragBox.getDialog() == null && !successDialogFragBox.getDialog().isShowing()){
-                        Intent intent   = new Intent(FormActivity.this, LeadersBoardActivity.class);
-                        startActivity(intent);
-                    }
                 }
 
                 @Override

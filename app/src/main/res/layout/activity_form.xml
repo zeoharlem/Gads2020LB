@@ -4,16 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
     android:background="#000"
+
     tools:context=".FormActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/secondLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -24,44 +33,54 @@
             android:id="@+id/project_submission"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
             android:gravity="center_horizontal"
-            android:textColor="#ffffff"
             android:text="@string/project_submission"
+            android:textColor="#ffffff"
             android:textSize="30sp" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/firstname"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:textColorHint="#777"
-            android:hint="@string/first_name">
+            android:orientation="horizontal">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/firstnameEdit"
-                android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/firstname"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textColor="#777777"
-                android:inputType="text" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:hint="@string/first_name"
+                android:textColorHint="#777">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/lastname"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColorHint="#777"
-            app:passwordToggleDrawable="@null"
-            android:hint="@string/last_name">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/firstnameEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/lastnameEdit"
-                android:layout_width="match_parent"
+                    android:inputType="text"
+                    android:textColor="#777777" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/lastname"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textColor="#777777"
-                android:inputType="text" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_weight="1"
+                android:hint="@string/last_name"
+                android:textColorHint="#777">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/lastnameEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textColor="#777777" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emailAddress"
@@ -69,16 +88,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
+            android:hint="@string/email_address"
             android:textColorHint="#777777"
-            app:passwordToggleDrawable="@null"
-            android:hint="@string/email_address">
+            app:passwordToggleDrawable="@null">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/emailAddressEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#777777"
-                android:inputType="text" />
+                android:inputType="text"
+                android:textColor="#777777" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -86,16 +105,16 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="#777777"
             android:layout_marginBottom="10dp"
-            android:hint="@string/github_url">
+            android:hint="@string/github_url"
+            android:textColorHint="#777777">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/githubUrlEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#777777"
-                android:inputType="text" />
+                android:inputType="text"
+                android:textColor="#777777" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -107,8 +126,8 @@
             android:layout_marginBottom="5dp"
             android:background="@drawable/dark_button_transparent_background"
             android:padding="15dp"
-            android:textColor="#555555"
             android:text="@string/submit_now"
+            android:textColor="#555555"
             android:textSize="17sp" />
 
     </LinearLayout>
