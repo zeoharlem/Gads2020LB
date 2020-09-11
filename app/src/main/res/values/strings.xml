@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Gads2020LB</string>
+    <string name="title_activity_leaders_board">LeadersBoardActivity</string>
+    <string name="tab_text_1">Learning Leaders</string>
+    <string name="tab_text_2">Skill IQ Leaders</string>
+    <string name="project_submission">Project Submission</string>
+    <string name="submit_now">Submit Now</string>
+    <string name="github_url">Github Url</string>
+    <string name="email_address">Email Address</string>
+    <string name="last_name">Last Name</string>
+    <string name="first_name">First Name</string>
+    <string name="submit_project">Submit</string>
+</resources>
