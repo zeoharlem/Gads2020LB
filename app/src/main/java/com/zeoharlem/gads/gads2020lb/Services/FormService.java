@@ -13,6 +13,7 @@ public interface FormService {
     @POST
     Call<GoogleForm> createGoogleForm(@Url String altUrl, @Body GoogleForm newGoogleForm);
 
+    @POST
     Call<Void> submitGoogleForm(@Url String altUrl,
                                 @Field("entry.1824927963")String firstname,
                                 @Field("entry.1824927963")String lastname,
