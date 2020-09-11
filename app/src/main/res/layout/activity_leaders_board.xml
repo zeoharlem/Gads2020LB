@@ -9,6 +9,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="?attr/colorSurface"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <RelativeLayout
@@ -33,9 +34,12 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
                 android:background="@drawable/dark_button_transparent_background"
                 android:drawableEnd="@drawable/ic_baseline_add_24"
-                android:text="@string/submit_project" />
+                android:text="@string/submit_project"
+                android:textAllCaps="false"
+                android:textSize="13sp" />
 
         </RelativeLayout>
 
@@ -44,7 +48,7 @@
             style="@style/MyTabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
+            android:background="?attr/colorSurface"
             app:tabGravity="fill"
             app:tabMode="fixed"
             app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget" />
@@ -62,5 +66,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
+        android:background="@color/colorAccent"
         android:src="@drawable/ic_baseline_add_24" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
