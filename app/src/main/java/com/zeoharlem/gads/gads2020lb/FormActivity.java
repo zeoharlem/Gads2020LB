@@ -54,6 +54,7 @@ public class FormActivity extends AppCompatActivity implements MyDialogFragBox.C
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.gads_sm_logo);
 
         mDialog     = new Dialog(this);
 
